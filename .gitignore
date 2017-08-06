@@ -284,3 +284,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+#IML Files IntelliJ
+*.iml
