@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "set DEBUG=rankingit:server && node server.js"
   },
   "dependencies": {
       "express": "latest",
