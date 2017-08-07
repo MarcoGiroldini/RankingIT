@@ -12,6 +12,6 @@
       "morgan": "latest",
       "cookie-parser": "latest",
       "body-parser": "latest",
-	  "socket.io": "latest"
+	    "socket.io": "latest"
   }
 }

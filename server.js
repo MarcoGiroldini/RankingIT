@@ -21,7 +21,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-//Socket.io va inizializzato prima di routes visto che io andrà passato a routes
+//Socket.io va inizializzato prima di routes visto che io andrï¿½ passato a routes
 var io = require('socket.io')(server);
 exports.io = io;
 
@@ -35,7 +35,8 @@ app.use('/api', api);
 
 // Catch all other routes and return the index file
 //This catch all route, denoted with *, MUST come last after all other API routes have been defined
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+app.use('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/dist/index.html'));
 });
 
 //BodyParser e CookieParser Setup
