@@ -1,4 +1,4 @@
-var express = require('express');
+﻿var express = require('express');
 var path = require('path');
 
 var debug = require('debug')('rankingit:server');
@@ -21,7 +21,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-//Socket.io va inizializzato prima di routes visto che io andr� passato a routes
+//Socket.io va inizializzato prima di routes visto che io andrà passato a routes
 var io = require('socket.io')(server);
 exports.io = io;
 
@@ -35,6 +35,7 @@ app.use('/api', api);
 
 // Catch all other routes and return the index file
 //This catch all route, denoted with *, MUST come last after all other API routes have been defined
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
