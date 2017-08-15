@@ -1,32 +1,32 @@
-﻿var express = require('express');
-var path = require('path');
+﻿let express = require('express');
+let path = require('path');
 
-var debug = require('debug')('rankingit:server');
-var http = require('http');
+let debug = require('debug')('rankingit:server');
+let http = require('http');
 
-//var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+//let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 
-var app = express();
+let app = express();
 
 //Startup server
-var port = normalizePort(process.env.PORT || '3000');
+let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-var server = http.createServer(app);
+let server = http.createServer(app);
 
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
 //Socket.io va inizializzato prima di routes visto che io andr� passato a routes
-var io = require('socket.io')(server);
+let io = require('socket.io')(server);
 exports.io = io;
 
 //File router
-var api = require('./server/routes/api');
+let api = require('./server/routes/api');
 
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
@@ -46,11 +46,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
@@ -59,8 +59,8 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+if (app.use('env') === 'development') {
+    app.use(function(err, req, res) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -71,7 +71,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
@@ -80,7 +80,7 @@ app.use(function(err, req, res, next) {
 });
 
 function normalizePort(val) {
-    var port = parseInt(val, 10);
+    let port = parseInt(val, 10);
 
     if (isNaN(port)) {
         // named pipe
@@ -100,7 +100,7 @@ function onError(error) {
         throw error;
     }
 
-    var bind = typeof port === 'string'
+    let bind = typeof port === 'string'
         ? 'Pipe ' + port
         : 'Port ' + port;
 
@@ -120,8 +120,8 @@ function onError(error) {
 }
 
 function onListening() {
-    var addr = server.address();
-    var bind = typeof addr === 'string'
+    let addr = server.address();
+    let bind = typeof addr === 'string'
         ? 'pipe ' + addr
         : 'port ' + addr.port;
     debug('Listening on ' + bind);

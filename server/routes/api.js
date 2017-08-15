@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var server = require('../../server');
-var io = server.io;
+let server = require('../../server');
+let io = server.io;
 
 /* GET home page api. */
-router.use('/', function(req, res, next) {
+router.use('/', function(req, res) {
     res.json({api: "root"});
 });
 
