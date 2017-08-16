@@ -28,16 +28,7 @@
     <Content Include="client\README.md" />
     <Compile Include="client\karma.conf.js" />
     <Compile Include="client\protractor.conf.js" />
-    <Content Include="client\e2e\tsconfig.e2e.json" />
     <Content Include="Web.config" />
-    <None Include="Web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="Web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <TypeScriptCompile Include="client\e2e\app.e2e-spec.ts" />
-    <TypeScriptCompile Include="client\e2e\app.po.ts" />
     <Content Include="client\src\index.html" />
     <Content Include="client\src\styles.css" />
     <Content Include="client\src\favicon.ico" />
@@ -58,7 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="client" />
-    <Folder Include="client\e2e" />
     <Folder Include="client\src" />
     <Folder Include="client\src\app" />
     <Folder Include="client\src\assets" />
