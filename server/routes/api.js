@@ -4,8 +4,8 @@ let router = express.Router();
 let server = require('../../server');
 let io = server.io;
 
-/* GET home page api. */
-router.use('/', function(req, res) {
+/* Home page api. */
+router.use("/", (req, res) => {
     res.json({api: "root"});
 });
 

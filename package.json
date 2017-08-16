@@ -6,12 +6,13 @@
     "start": "set DEBUG=rankingit:server && node server.js"
   },
   "dependencies": {
-      "express": "latest",
-      "debug": "latest",
-      "http": "latest",
-      "morgan": "latest",
-      "cookie-parser": "latest",
-      "body-parser": "latest",
-	    "socket.io": "latest"
+    "assert-plus": "^1.0.0",
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "debug": "latest",
+    "express": "latest",
+    "http": "latest",
+    "morgan": "latest",
+    "socket.io": "latest"
   }
 }

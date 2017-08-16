@@ -4,7 +4,6 @@ let path = require('path');
 let debug = require('debug')('rankingit:server');
 let http = require('http');
 
-//let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
@@ -21,17 +20,17 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-//Socket.io va inizializzato prima di routes visto che io andr� passato a routes
+//Socket.io va inizializzato prima di routes visto che io andra' passato alle routes
 let io = require('socket.io')(server);
 exports.io = io;
 
 //File router
-let api = require('./server/routes/api');
+let routes = require('./server/routes/routes');
 
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
-// Set api routes
-app.use('/api', api);
+// Set routes router
+app.use('/', routes);
 
 // Catch all other routes and return the index file
 //This catch all route, denoted with *, MUST come last after all other API routes have been defined
