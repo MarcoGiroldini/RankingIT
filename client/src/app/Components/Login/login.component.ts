@@ -1,17 +1,20 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, AfterViewInit } from '@angular/core';
 
 import { AuthService } from "../../auth.service";
+//import { AppSettings } from '../../app.component'; //Global vars
 
 @Component({
-    selector: 'login',
-    templateUrl: './login.component.html'
+  selector: 'login',
+  templateUrl: './login.component.html'
 })
-export class LoginComponent {
 
-    constructor(private authService: AuthService) { }
+export class LoginComponent implements AfterViewInit{
 
-    doLogin(): void {
-        this.authService.login();
-    }
+  constructor(private authService: AuthService) { }
+
+  //Google SignIn init on the button
+  ngAfterViewInit(){
+    this.authService.googleInit(document.getElementById('googleBtn'));
+  }
 
 }

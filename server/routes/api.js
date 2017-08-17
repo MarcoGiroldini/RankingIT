@@ -5,7 +5,7 @@ let server = require('../../server');
 let io = server.io;
 
 /* Home page api. */
-router.use("/", (req, res) => {
+router.use('/', (req, res) => {
     res.json({api: "root"});
 });
 

@@ -36,7 +36,7 @@ const appRoutes: Routes = [
         canActivate: [AuthService],
         children: [
             {
-                path: "joinTeam",
+                path: "join",
                 component: JoinTeamComponent
             }
         ]
