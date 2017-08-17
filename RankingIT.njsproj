@@ -15,10 +15,20 @@
     <EnableTypeScript>true</EnableTypeScript>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <NodejsPort>3000</NodejsPort>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="client\src\app\Components\Home\home.component.css" />
+    <Content Include="client\src\app\Components\Home\home.component.html" />
+    <Content Include="client\src\app\Components\JoinTeam\joinTeam.component.css" />
+    <Content Include="client\src\app\Components\JoinTeam\joinTeam.component.html" />
+    <Content Include="client\src\app\Components\Login\login.component.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="client\src\app\ErrorPages\pageNotFound.component.html" />
     <Content Include="package.json" />
     <Compile Include="server.js" />
     <Content Include="client\.angular-cli.json" />
@@ -34,6 +44,12 @@
     <Content Include="client\src\favicon.ico" />
     <Content Include="client\src\tsconfig.app.json" />
     <Content Include="client\src\tsconfig.spec.json" />
+    <TypeScriptCompile Include="client\src\app\Components\Home\home.component.ts" />
+    <TypeScriptCompile Include="client\src\app\Components\JoinTeam\joinTeam.component.ts" />
+    <TypeScriptCompile Include="client\src\app\Components\Login\login.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="client\src\app\ErrorPages\pageNotFound.component.ts" />
     <TypeScriptCompile Include="client\src\main.ts" />
     <TypeScriptCompile Include="client\src\polyfills.ts" />
     <TypeScriptCompile Include="client\src\test.ts" />
@@ -51,6 +67,11 @@
     <Folder Include="client" />
     <Folder Include="client\src" />
     <Folder Include="client\src\app" />
+    <Folder Include="client\src\app\Components\JoinTeam\" />
+    <Folder Include="client\src\app\Components\Login\" />
+    <Folder Include="client\src\app\Components\" />
+    <Folder Include="client\src\app\Components\Home\" />
+    <Folder Include="client\src\app\ErrorPages\" />
     <Folder Include="client\src\assets" />
     <Folder Include="client\src\environments" />
     <Folder Include="server" />

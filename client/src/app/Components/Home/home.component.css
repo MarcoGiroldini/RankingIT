@@ -1,0 +1,50 @@
+﻿#rootContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+md-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 64px;
+}
+
+md-toolbar a {
+  text-decoration: none;
+}
+md-toolbar a:visited{
+  color: white;
+}
+
+md-sidenav-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Tablets and desktops */
+@media all and (min-width: 769px) {
+  md-sidenav {
+    width: 320px;
+  }
+}
+/* Smartphones */
+@media all and (max-width: 768px) {
+  md-sidenav {
+    width: 240px;
+  }
+}
+
+
+#inner-sidenav-content {
+  overflow: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 64px;
+  margin-top: 10px;
+}

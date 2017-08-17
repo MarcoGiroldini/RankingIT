@@ -1,0 +1,9 @@
+﻿<md-input-container>
+  <input type="text" mdInput [formControl]="joinTeamControl" [mdAutocomplete]="auto" placeholder="Team name">
+</md-input-container>
+
+<md-autocomplete #auto="mdAutocomplete">
+  <md-option *ngFor="let team of filteredTeams | async" [value]="team">
+    {{ team }}
+  </md-option>
+</md-autocomplete>

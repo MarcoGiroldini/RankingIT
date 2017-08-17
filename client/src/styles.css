@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+﻿/* Import Angular Material theme */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Tablets and desktops */
+@media all and (min-width: 769px) {
+  md-sidenav {
+    width: 320px;
+  }
+
+  * {
+    font-size: 15px;
+  }
+}
+/* Smartphones */
+@media all and (max-width: 768px) {
+  md-sidenav {
+    width: 240px;
+  }
+
+  * {
+    font-size: 14px;
+  }
+}
+
+md-toolbar span, a {
+  font-size: 20px;
+}

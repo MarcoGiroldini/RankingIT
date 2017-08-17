@@ -1,0 +1,46 @@
+﻿<div id="rootContainer">
+
+  <md-sidenav-container>
+    <md-sidenav mode="over" #sidenav>
+
+      <md-toolbar>
+        <!--<img [src]="(user | async).providerData[0].photoURL"/>-->
+        <span>Name</span>
+        <md-toolbar-row>
+          <span>2nd row</span>
+        </md-toolbar-row>
+      </md-toolbar>
+
+      <!-- List -->
+      <p>Sidenav content</p>
+    </md-sidenav>
+
+
+    <md-toolbar color="primary">
+      <button md-icon-button (click)="sidenav.open()">
+        <md-icon>menu</md-icon>
+      </button>
+
+
+      <a href="" onclick="return false;" (click)="returnToHomePath()" >
+        RankingIT
+      </a>
+
+      <span style="flex: 1 1 auto;"></span>
+
+      <button md-icon-button (click)="doLogout()">
+        <md-icon>exit_to_app</md-icon>
+      </button>
+
+    </md-toolbar>
+
+    <div id="inner-sidenav-content">
+      <!-- Used by children paths -->
+      <router-outlet></router-outlet>
+    </div>
+
+  </md-sidenav-container>
+
+
+</div>
+
