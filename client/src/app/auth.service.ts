@@ -17,36 +17,26 @@ export class AuthService implements CanActivate  {
   /** Google SignIn setup and  */
   public auth2: any;
 
-  public googleInit(element) {  //Button element specified when method is called
+  public googleInit(element, elementId) {  //Button element specified when method is called
     gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
         client_id: '123106317142-9iftdo73fihmoh472cce4qh2fhe8rg37.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
         //scope: 'profile email'
-        //ux_mode: 'redirect',
-        //redirect_uri: '/'
+        ux_mode: 'redirect',
+        redirect_uri: 'http://localhost:4200/login'
       });
-      this.attachSignin(element);
-    });
 
+      //Attaches onSignIn method
+      gapi.signin2.render(elementId, {
+        onsuccess: this.onSignIn
+      });
+    });
   }
 
-  public attachSignin(element) {
-    this.auth2.attachClickHandler(element, {},
-      (googleUser) => {
-
-        let profile = googleUser.getBasicProfile();
-        console.log('Token || ' + googleUser.getAuthResponse().id_token);
-        console.log('ID: ' + profile.getId());
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
-        //YOUR CODE HERE
-
-
-      }, (error) => {
-        alert(JSON.stringify(error, undefined, 2));
-      });
+  public onSignIn(){
+    console.log(gapi.auth2.getAuthInstance().currentUser.get());
+    //Code here
   }
 
   public logUserData(): void {

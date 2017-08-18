@@ -14,7 +14,7 @@ export class LoginComponent implements AfterViewInit{
 
   //Google SignIn init on the button
   ngAfterViewInit(){
-    this.authService.googleInit(document.getElementById('googleBtn'));
+    this.authService.googleInit(document.getElementById('googleBtn'), 'googleBtn');
   }
 
 }
