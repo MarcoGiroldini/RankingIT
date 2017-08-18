@@ -1,7 +1,7 @@
 ﻿import { Component, AfterViewInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { AuthService } from "../../auth.service";
-//import { AppSettings } from '../../app.component'; //Global vars
 
 @Component({
   selector: 'login',
@@ -10,11 +10,11 @@ import { AuthService } from "../../auth.service";
 
 export class LoginComponent implements AfterViewInit{
 
-  constructor(private authService: AuthService) { }
+	constructor(private authService: AuthService, private router: Router) { }
 
-  //Google SignIn init on the button
-  ngAfterViewInit(){
-    this.authService.googleInit(document.getElementById('googleBtn'), 'googleBtn');
-  }
+    //Google SignIn init on the button
+	ngAfterViewInit() {
+        this.authService.googleInit('googleBtn');
+    }
 
 }
