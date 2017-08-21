@@ -25,6 +25,9 @@
     <Content Include="client\src\app\Components\Home\home.component.html" />
     <Content Include="client\src\app\Components\JoinTeam\joinTeam.component.css" />
     <Content Include="client\src\app\Components\JoinTeam\joinTeam.component.html" />
+    <Content Include="client\src\app\Components\Login\login.component.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="client\src\app\Components\Login\login.component.html">
       <SubType>Code</SubType>
     </Content>

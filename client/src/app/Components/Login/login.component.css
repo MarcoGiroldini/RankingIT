@@ -1,0 +1,10 @@
+﻿.centered {
+  text-align: center;
+  margin-top: 40px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

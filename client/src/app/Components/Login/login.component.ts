@@ -10,7 +10,8 @@ import { environment } from "../../../environments/environment";
 
 @Component({
     selector: 'login',
-    templateUrl: './login.component.html',
+	templateUrl: './login.component.html',
+	styleUrls: ["./login.component.css"]
 })
 export class LoginComponent {
     user: Observable<firebase.User> = null;
