@@ -1,6 +1,9 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+﻿# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 **/Configs/Firebase.ts
+
+#Firebase config
+server/config/firebase.json
 
 # compiled output
 /client/dist
