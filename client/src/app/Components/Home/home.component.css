@@ -1,4 +1,4 @@
-﻿#rootContainer {
+#rootContainer {
   position: absolute;
   top: 0;
   left: 0;
@@ -15,6 +15,7 @@ md-toolbar {
 
 md-toolbar a {
   text-decoration: none;
+  color: white;
 }
 md-toolbar a:visited{
   color: white;
@@ -47,4 +48,12 @@ md-sidenav-container {
   right: 0;
   top: 64px;
   margin-top: 10px;
+}
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

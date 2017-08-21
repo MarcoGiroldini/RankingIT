@@ -1,4 +1,4 @@
-﻿import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -71,8 +71,8 @@ const appRoutes: Routes = [
         AngularFireDatabaseModule,
         FirebaseUIModule.forRoot(FirebaseUi.AuthConfig),
         RouterModule.forRoot(
-			appRoutes,
-			{ enableTracing: !environment.production }
+			    appRoutes,
+			    { enableTracing: !environment.production }
         ),
         FormsModule,
         ReactiveFormsModule,

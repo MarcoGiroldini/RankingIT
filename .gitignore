@@ -1,6 +1,6 @@
-﻿# See http://help.github.com/ignore-files/ for more about ignoring files.
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-**/*/*.Template.ts
+**/Configs/Firebase.ts
 
 # compiled output
 /client/dist
