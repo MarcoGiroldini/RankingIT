@@ -24,6 +24,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
+import { environment } from "../environments/environment";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Login/login.component';
 import { HomeComponent } from "./Components/Home/home.component";
@@ -70,8 +71,8 @@ const appRoutes: Routes = [
         AngularFireDatabaseModule,
         FirebaseUIModule.forRoot(FirebaseUi.AuthConfig),
         RouterModule.forRoot(
-            appRoutes,
-            { enableTracing: true }
+			appRoutes,
+			{ enableTracing: !environment.production }
         ),
         FormsModule,
         ReactiveFormsModule,

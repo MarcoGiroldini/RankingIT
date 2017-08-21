@@ -26,7 +26,6 @@ export class AuthService implements CanActivate {
 
     logUserData() {
         this.getAuthState().subscribe(user => {
-            
               if (!environment.production) {
                   console.log(user);
               }
