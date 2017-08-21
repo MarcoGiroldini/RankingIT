@@ -18,9 +18,9 @@ export class JoinTeamComponent {
     ngOnInit() {
         this.joinTeamControl = new FormControl();
 
-        /*this.filteredTeams = this.joinTeamControl.valueChanges
+        this.filteredTeams = this.joinTeamControl.valueChanges
             .startWith(null)
-            .map(val => this.filter(val));*/
+            .map(val => this.filter(val));
     }
 
     filter(val: string) {

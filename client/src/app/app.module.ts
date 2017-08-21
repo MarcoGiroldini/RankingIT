@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+import { AngularFireModule } from "angularfire2";
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { FirebaseUIModule } from "firebaseui-angular";
+import { FirebaseConfigs } from "../Configs/Firebase";
+import { FirebaseUi } from "../Configs/FirebaseAuthProviders";
 import { AuthService } from "./auth.service";
-
-import { PageNotFoundComponent } from './ErrorPages/pageNotFound.component';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './Components/Login/login.component';
-import { HomeComponent } from "./Components/Home/home.component";
-import { JoinTeamComponent } from "./Components/JoinTeam/joinTeam.component";
 
 import {
     MdButtonModule,
@@ -24,6 +24,12 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
+import { AppComponent } from './app.component';
+import { LoginComponent } from './Components/Login/login.component';
+import { HomeComponent } from "./Components/Home/home.component";
+import { PageNotFoundComponent } from './ErrorPages/pageNotFound.component';
+import { JoinTeamComponent } from "./Components/JoinTeam/joinTeam.component";
+
 
 const appRoutes: Routes = [
     {
@@ -36,7 +42,7 @@ const appRoutes: Routes = [
         canActivate: [AuthService],
         children: [
             {
-                path: "join",
+                path: "joinTeam",
                 component: JoinTeamComponent
             }
         ]
@@ -47,35 +53,40 @@ const appRoutes: Routes = [
     }
 ];
 
+
+
 @NgModule({
-  declarations: [
-      AppComponent,
-      LoginComponent,
-      PageNotFoundComponent,
-      HomeComponent,
-      JoinTeamComponent
-  ],
-  imports: [
-      BrowserModule,
-      RouterModule.forRoot(
-          appRoutes,
-          { enableTracing: true }
-      ),
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        PageNotFoundComponent,
+        HomeComponent,
+        JoinTeamComponent
+    ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(FirebaseConfigs.firebase),
+        AngularFireAuthModule,
+        AngularFireDatabaseModule,
+        FirebaseUIModule.forRoot(FirebaseUi.AuthConfig),
+        RouterModule.forRoot(
+            appRoutes,
+            { enableTracing: true }
+        ),
+        FormsModule,
+        ReactiveFormsModule,
 
-      FormsModule,
-      ReactiveFormsModule,
-
-      BrowserAnimationsModule,
-      MdCheckboxModule,
-      MdButtonModule,
-      MdToolbarModule,
-      MdIconModule,
-      MdSidenavModule,
-      MdAutocompleteModule,
-      MdInputModule,
-      MdOptionModule
-  ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+        BrowserAnimationsModule,
+        MdCheckboxModule,
+        MdButtonModule,
+        MdToolbarModule,
+        MdIconModule,
+        MdSidenavModule,
+        MdAutocompleteModule,
+        MdInputModule,
+        MdOptionModule
+    ],
+    providers: [AuthService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -46,9 +46,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="client\src\app\ErrorPages\pageNotFound.component.ts" />
-    <TypeScriptCompile Include="client\src\Configs\AuthConfigs.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="client\src\Configs\Firebase.Template.ts" />
+    <TypeScriptCompile Include="client\src\Configs\Firebase.ts" />
+    <TypeScriptCompile Include="client\src\Configs\FirebaseAuthProviders.ts" />
     <TypeScriptCompile Include="client\src\main.ts" />
     <TypeScriptCompile Include="client\src\polyfills.ts" />
     <TypeScriptCompile Include="client\src\typings.d.ts" />

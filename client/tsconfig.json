@@ -1,4 +1,4 @@
-{
+﻿{
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
@@ -11,9 +11,15 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": [
+      "firebase"
+    ],
     "lib": [
       "es2016",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

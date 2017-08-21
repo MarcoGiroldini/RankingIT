@@ -1,7 +1,7 @@
 ﻿/* Import Angular Material theme */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-* {
+*{
   font-family: "Roboto", sans-serif;
 }
 
@@ -26,6 +26,6 @@
   }
 }
 
-md-toolbar span, a {
+md-toolbar span, a{
   font-size: 20px;
 }

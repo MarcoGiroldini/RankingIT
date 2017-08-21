@@ -1,49 +1,51 @@
-﻿import { Injectable } from "@angular/core";
+﻿import { Injectable } from '@angular/core';
 import { CanActivate, Router } from "@angular/router";
 import { environment } from "../environments/environment";
 
-import { AuthProvidersConfigs } from "../Configs/AuthConfigs";
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
-
-declare const gapi: any;
+import { Observable } from "rxjs/Observable";
+import { AngularFireAuth } from "angularfire2/auth";
+import * as firebase from "firebase/app";
 
 
 @Injectable()
-export class AuthService implements CanActivate  {
+export class AuthService implements CanActivate {
 
-	constructor(private router: Router) { }
+    constructor(private afAuth: AngularFireAuth, private router: Router) { }
 
-	public canActivate(): boolean {
-		return true
+    getAuth(): any {
+        return this.afAuth.auth;
     }
 
-    /** Google SignIn setup */
-    public auth2: any;
-
-    public googleInit(elementId) {  //Button element specified when method is called
-        gapi.load('auth2', () => {
-            this.auth2 = gapi.auth2.init({
-                client_id: AuthProvidersConfigs.GoogleClientId,
-                cookiepolicy: 'single_host_origin',
-                //scope: 'profile email'
-                ux_mode: 'redirect',
-                redirect_uri: (location.protocol + "//" + location.host + "/")
-            });
-
-            //Attaches onSignIn method
-            gapi.signin2.render(elementId, {
-                onsuccess: this.onSignIn()
-            });
-        });
+    getAuthState(): Observable<firebase.User> {
+        return this.afAuth.authState;
     }
 
-	public onSignIn(): void {
-		console.log(gapi.auth2.getAuthInstance().currentUser.get());
-	}
+    logUserData() {
+        this.getAuthState().subscribe(user => {
+            
+              if (!environment.production) {
+                  console.log(user);
+              }
+        })
+    }
 
-    public logUserData(): void {
-		if (!environment.production) {
-			console.log("User data: ");
-        }
+    canActivate(): Observable<boolean> {
+        return this.afAuth.authState
+            .take(1)
+            .map(authState => !!authState)
+            .do(authenticated => {
+                if (!authenticated) this.router.navigate(["/login"]);
+            })
+    }
+
+    signOut() {
+        this.getAuth().signOut();
+        // After logout, send user to the login page
+        this.router.navigate(["/login"]);
     }
 }
+

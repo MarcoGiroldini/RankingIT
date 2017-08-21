@@ -1,20 +1,30 @@
-﻿import { Component, AfterViewInit } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 
+import { Observable } from "rxjs/Observable";
+import * as firebase from "firebase/app";
 import { AuthService } from "../../auth.service";
+import { AngularFireDatabase } from "angularfire2/database";
+
+import { environment } from "../../../environments/environment";
 
 @Component({
-  selector: 'login',
-  templateUrl: './login.component.html'
+    selector: 'login',
+    templateUrl: './login.component.html',
 })
+export class LoginComponent {
+    user: Observable<firebase.User> = null;
 
-export class LoginComponent implements AfterViewInit{
-
-	constructor(private authService: AuthService, private router: Router) { }
-
-    //Google SignIn init on the button
-	ngAfterViewInit() {
-        this.authService.googleInit('googleBtn');
+    constructor(private authService: AuthService, private router: Router, private af: AngularFireDatabase) {
+        this.user = authService.getAuthState();
     }
 
+    ngOnInit(): void {
+        this.user.subscribe(d => {
+            // If user is logged and he has returned to this page, send him to the main path
+            if (d) {
+                this.router.navigate(["/"]);
+            };
+        });
+    }
 }
