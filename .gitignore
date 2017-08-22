@@ -3,7 +3,7 @@
 **/Configs/Firebase.ts
 
 #Firebase config
-server/config/firebase.json
+server/config/config.json
 
 # compiled output
 /client/dist

@@ -5,11 +5,10 @@ let router = express.Router();
 let io = server.io;*/
 let auth = require('./auth');
 
-/* Home page api. */
+router.use('/auth', auth);
+
 router.use('/', (req, res) => {
     res.json({api: "root"});
 });
-
-router.use('/auth', auth);
 
 module.exports = router;
