@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -10,6 +11,7 @@ import { FirebaseUIModule } from "firebaseui-angular";
 import { FirebaseConfigs } from "../Configs/Firebase";
 import { FirebaseUi } from "../Configs/FirebaseAuthProviders";
 import { AuthService } from "./auth.service";
+import { HttpService } from "./Services/http.service";
 
 import {
     MdButtonModule,
@@ -75,7 +77,8 @@ const appRoutes: Routes = [
 			    { enableTracing: !environment.production }
         ),
         FormsModule,
-        ReactiveFormsModule,
+		ReactiveFormsModule,
+		HttpModule,
 
         BrowserAnimationsModule,
         MdCheckboxModule,
@@ -87,7 +90,10 @@ const appRoutes: Routes = [
         MdInputModule,
         MdOptionModule
     ],
-    providers: [AuthService],
+	providers: [
+		AuthService,
+		HttpService
+	],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
