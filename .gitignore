@@ -4,7 +4,7 @@
 /client/src/Configs/Firebase.json
 
 #Firebase config
-server/config/firebase.json
+server/config/config.json
 
 # compiled output
 /client/dist

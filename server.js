@@ -20,7 +20,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-//Socket.io va inizializzato prima di routes visto che io andra' passato alle routes
+//Socket.io must be initialized before of routes because io will be passed to the routes
 let io = require('socket.io')(server);
 exports.io = io;
 
