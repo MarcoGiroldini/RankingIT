@@ -1,0 +1,24 @@
+{
+    "credential": {
+        "type": "service_account",
+        "project_id": "rankingit-176916",
+        "private_key_id": "65a89151e74366f385f9a26130d86dcbe70f41ff",
+        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDIsukTcVuq6h/6\nHRtKk4ysC8iAbc3iJaSuJAf8ZPakJ9vX4KdcZMJTm/Y/BDTKt3J8JHOHUPXYI1x0\naRu+z8SplrR8+X5qyyY3SdX2DIRiCLJMrajTHKLc7HGoW2NwAtao8N/aKR0BFLhy\nVLSW4N+0LTFEnBVWMH9JzE+ScCfrmYaGFFrFNvO6RZXatpgcYNFdRCQrYaLVULAn\nv/ggwbs4OLKj7mL0rTQfHEwCscll9FsADUzrw158OUSEmgOrdMv6MgJuDNtmTVlu\nXVD40y0iU5/XslLcqlYf8nEuQ1MMbrd3TZKthW9wKuBuH68P9OpIvu8grxJAvKYb\nQuC33QKNAgMBAAECggEAEqzzTo5B2KNCQbGFR89EsjQpscNSx5rd7bmhZ88aISeR\nJ+lzwv+geMwOgf0Pz71HHffJkeuETo4b0FYavgq/Yuu79KH5LYU+rSGY+cH4bHCH\nhuZLmDl8V9DfH3d0xu68r6o0A/nHa45Uce8hggvmEfISn5VjahdhNBDOM4yhA/Jy\nQaP7zCUWO7e0EVeOdTqOzKoQEYMeevItSfgmKX3UNEQ6ry8dORsypv9dpeT2KwWD\nyoCsdc2MlXNG/K3AjurTH0WLYN6lASAr4ZvV5ERw5qwLdJioAgttQdPe82vvvMLG\nAXohqyjKOsHSUAnS9zUOfU9DxWOC20CdfjvC3Zd40QKBgQDwubLR3naEtWYSx+Q3\n16/s1oTsgzrcoFn5gJMfvrhKFWN+cXBJB2KSn2Ci6p9iNAvNE3V3C0AEuN+M51Zn\ns6SbaObaYlXGqN38HE0r/RbcEZy2bR0q1uyK1FsJayCSlAa3TaHU22v/iXR/2Cup\nyT7ZG9yGMVFunb/FRMbgxFi4jwKBgQDVbwc0VcWsaGXRWB5QjWNiBgW1xvsVaJ6m\nbS9TKL7RQx7+yr9m/VwjNBZoOgx01IdQxQNpEPSgD1Hw+ab+zpmITEl3gGWZIdTG\ndcXyrB04c/Hk7EYcdRdjXygDR39xBK0QimIHrohvt/804kfZ2B9x9jSbt9EV+Ffj\nrGt/irVJIwKBgQDggE8E6zQdEA/h9AojCkRH3MiayshaejFvPzn2oSe977Sad7EA\naqLDm1/EkIuUSnW3DC7Alv1dag0Sm605iZA6X9rsUEkuvM5KERrnq2FmXAaLG7fX\n/BkeYG2GmyIFkYex6/TBTuGpr8e2cyRFdCno0NMZU2VehEAU+c+AT51ugQKBgCJN\nfuXtZyDHgp27wNuHbdKiTyag/Ve6gc0TvUhrQwfU9tVSdqKx064gv/0uXzQjuD/F\n+j9Xp0lWTQAiz7EiOVDLmf8n1qxe4Jio8xCGkwewss7tHnOSahjhgUfNpPDgJISF\nCS5c4ba65rx0JcIgVyV0wY3JZERYrp975acQ/wPrAoGAdaIYyhFaTfVLpI87h+5X\nXqoUjsPJQ7PgjrAcEk8mTytIwQHPQmxWGEC7f6+sIJKTDRKb0iFhk6FwqRoh1vp3\nqFqlRTwUL4H6ue5++5XZ7RJi6VqQIwH7ILBKFjpsDB0NIZx3NgnP2ANRsuIbJLBe\nKtvOu3u3hf5J1Qwi4/P12fE=\n-----END PRIVATE KEY-----\n",
+        "client_email": "firebase-adminsdk-68e79@rankingit-176916.iam.gserviceaccount.com",
+        "client_id": "101073414182537788092",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://accounts.google.com/o/oauth2/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-68e79%40rankingit-176916.iam.gserviceaccount.com"
+    },
+    "firebaseDB": {
+        "databaseURL": "https://rankingit-176916.firebaseio.com"
+    },
+    "database": {
+        "connectionLimit": 200,
+        "host": "localhost:51933",
+        "user": "azure",
+        "password": "6#vWHD_$",
+        "database": "rankingit"
+    }
+}

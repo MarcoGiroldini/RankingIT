@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 
 import { Observable } from "rxjs/Observable";
@@ -16,7 +16,7 @@ import { environment } from "../../../environments/environment";
 export class LoginComponent {
     user: Observable<firebase.User> = null;
 
-    constructor(private authService: AuthService, private router: Router, private af: AngularFireDatabase) {
+    constructor(private authService: AuthService, private router: Router) {
         this.user = authService.getAuthState();
     }
 

@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 /client/src/environments/environment.prod.ts
-/client/src/Configs/Firebase.ts
+/client/src/Configs/Firebase.json
 
 #Firebase config
 server/config/firebase.json

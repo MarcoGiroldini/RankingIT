@@ -6,12 +6,12 @@ import { HttpModule } from "@angular/http";
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireDatabaseModule } from "angularfire2/database";
-import { FirebaseUIModule } from "firebaseui-angular";
-import { FirebaseConfigs } from "../Configs/Firebase";
+import { FirebaseUIModule, FirebaseUIAuthConfig, AuthProvider, AuthMethods, AuthProviderWithCustomConfig } from "firebaseui-angular";
 import { FirebaseUi } from "../Configs/FirebaseAuthProviders";
 import { AuthService } from "./auth.service";
 import { HttpService } from "./Services/http.service";
+
+import * as FirebaseConfigs from "../Configs/Firebase.json";
 
 import {
     MdButtonModule,
@@ -67,11 +67,10 @@ const appRoutes: Routes = [
         JoinTeamComponent
     ],
     imports: [
-        BrowserModule,
-        AngularFireModule.initializeApp(FirebaseConfigs.firebase),
+		BrowserModule,
+		AngularFireModule.initializeApp(FirebaseConfigs),
         AngularFireAuthModule,
-        AngularFireDatabaseModule,
-        FirebaseUIModule.forRoot(FirebaseUi.AuthConfig),
+		FirebaseUIModule.forRoot(FirebaseUi.AuthConfig),
         RouterModule.forRoot(
 			    appRoutes,
 			    { enableTracing: !environment.production }
