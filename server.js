@@ -20,6 +20,13 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+//BodyParser e CookieParser Setup
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
 //Socket.io must be initialized before of routes because io will be passed to the routes
 let io = require('socket.io')(server);
 exports.io = io;
@@ -37,15 +44,6 @@ app.use('/', routes);
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/dist/index.html'));
 });
-
-//BodyParser e CookieParser Setup
-
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-//app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

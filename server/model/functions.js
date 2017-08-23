@@ -11,11 +11,16 @@ admin.initializeApp({
 });
 
 let pool = mysql.createPool({
-    connectionLimit: config.database.connectionLimit,
-    host: config.database.host,
-    user: config.database.user,
-    password: config.database.password,
-    database: config.database.database
+    connectionLimit: process.env.DB_AZURE ? config.database.connectionLimit : config.databaseDev.connectionLimit,
+    host: process.env.DB_AZURE ? config.database.host : config.databaseDev.host,
+    port: process.env.DB_AZURE ? config.database.port : config.databaseDev.port,
+    user: process.env.DB_AZURE ? config.database.user : config.databaseDev.user,
+    password: process.env.DB_AZURE ? config.database.password : config.databaseDev.password,
+    database: process.env.DB_AZURE ? config.database.database : config.databaseDev.database,
+});
+
+pool.getConnection((err, connection) => {
+    if (err) throw err;
 });
 
 // UTILS
@@ -35,6 +40,7 @@ f.sendErr = (req, res, errCode, errMsg) => {
 f.checkUserExists = (uid) => {
     return new Promise((resolve, reject) => {
         pool.getConnection((err, conn) =>{
+            if (err) reject(err);
             conn.query('SELECT id FROM users WHERE id = ?', [uid], (err, result) => {
                 conn.release();
                 if (err)
