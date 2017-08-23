@@ -16,9 +16,18 @@
     },
     "database": {
         "connectionLimit": 200,
-        "host": "localhost:51933",
+        "host": "localhost",
+        "port": "51933",
         "user": "azure",
         "password": "6#vWHD_$",
+        "database": "rankingit"
+    },
+    "databaseDev": {
+        "connectionLimit": 4,
+        "host": "eu-cdbr-azure-west-b.cloudapp.net",
+        "port": "3306",
+        "user": "bc5a0b964f5568",
+        "password": "105d0ff8",
         "database": "rankingit"
     }
 }

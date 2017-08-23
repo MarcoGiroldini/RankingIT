@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
+import { HttpErrorResponse } from '@angular/common/http';
+
+import { environment } from "../../../environments/environment";
 
 import { Observable } from "rxjs/Observable";
 import { AngularFireAuth } from "angularfire2/auth";
@@ -21,17 +24,32 @@ export class HomeComponent {
 		this.user = authService.getAuthState();
 
 		this.user.subscribe(userData => {
-			this.httpService.post(this.httpService.getApiServerUrl() + "api/login", {
-				// TODO: Object to send
-			}).subscribe(
-				data => {
-					console.log(data);
-				},
-				err => {
-					console.error(err);
+
+			// Get token
+			userData.getIdToken().then(token => {
+
+				if (!environment.production) {
+					console.log("Token: ", token);
 				}
-			);
-		})
+
+				// Send it to the api to login user
+				this.httpService.post(this.httpService.getApiServerUrl() + "api/auth/login", {
+					token: token
+				}).subscribe(
+					data => {
+						//console.log(data);
+					},
+					(err: HttpErrorResponse) => {
+						if (err.status == 401) {
+							alert("It seems you are not logged... Redirecting to login");
+							this.router.navigate(["/login"]);
+						} else {
+							console.error(err);
+						}
+					}
+				);
+			});
+		});
     }
 
     ngOnInit() {
