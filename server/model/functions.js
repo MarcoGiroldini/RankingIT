@@ -19,10 +19,6 @@ let pool = mysql.createPool({
     database: process.env.DB_AZURE ? config.database.database : config.databaseDev.database,
 });
 
-pool.getConnection((err, connection) => {
-    if (err) throw err;
-});
-
 // UTILS
 f.sendOK = (req, res, data) => {
     res.status(200).json({
@@ -46,10 +42,12 @@ f.checkUserExists = (uid) => {
                 if (err)
                     reject(err);
 
-                if (result[0].uid)
+                if (typeof result[0] !== "undefined")
                     resolve(true);
                 else
                     resolve(false);
+
+
             });
         });
     });
@@ -67,7 +65,7 @@ f.addUser = (uid) => {
                             if (err)
                                 reject(err);
 
-                            resolve(true)
+                                resolve(true);
                         });
                 });
             }).catch((err) => {

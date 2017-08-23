@@ -15,16 +15,16 @@ router.post('/login', (req, res) =>{
             f.checkUserExists(decodedToken.uid)
                 .then((exists) => {
                     if (exists)
-                        res.sendOK(req, res, "User already exists, logged in");    //Debug msg, output exists only
+                        f.sendOK(req, res, {"success": true, "message": "User already exists, logged in"});
                     else
                         f.addUser(decodedToken.uid)
                             .then((result) => {
-                                res.sendOK(req, res, "User created, logged in");    //Debug msg, output result only
+                                f.sendOK(req, res, {"success": true, "message": "User created, logged in"});
                             }).catch((err) => {
-                                res.sendErr(req, res, 500, err);
+                                f.sendErr(req, res, 500, err);
                             });
                 }).catch((err) => {
-                    res.sendErr(req, res, 500, err)
+                    f.sendErr(req, res, 500, err)
                 });
         }).catch((err) => {
             f.sendErr(req, res, 401, err)
